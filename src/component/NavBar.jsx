@@ -1,129 +1,61 @@
-// import React, { useState } from 'react';
-import DrawerComp from "../DrawerComp";
+import React from "react";
+import Drawer from "./Drawer";
 import {
   AppBar,
   Toolbar,
   Typography,
-  Tabs,
-  Tab,
   Box,
   Button,
   Link,
   Stack,
+  useMediaQuery,
+  useTheme,
+  IconButton,
 } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const NavBar = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <>
-      <AppBar sx={{ bgcolor: "transparent", boxShadow: "0" }}>
-        <Toolbar>
-          <Box sx={{ display: "flex", width: "100%", alignItems: "center", gap:"339px"  }}>
-            <Typography
-              style={{
-                color: "#54BD95",
-                fontSize: "50px",
-                marginLeft: "100px",
-              
-              }}
-            >
-              Biccas
-            </Typography>
-            <Box>
-              <Stack direction="row" spacing={2} alignItems="center">
-                
-                <Link
-                  href="#"
-                  underline="none"
-                  sx={{
-                    color: "#A6A6A6",
-                    fontWeight: "bold",
-                    "&:hover": {
-                      textDecoration: "underline",
-                      color: "#A6A6A6"
-                    },
-                  }}
-                >
-                  Home
-                </Link>
-                <Link
-                  href="#"
-                  underline="none"
-                  sx={{
-                    color: "#A6A6A6",
-                    fontWeight: "bold",
-                    "&:hover": {
-                      textDecoration: "underline",
-                    },
-                  }}
-                >
-                  Product
-                </Link>
-                <Link
-                  href="#"
-                  underline="none"
-                  sx={{
-                    color: "#A6A6A6",
-                    fontWeight: "bold",
-                    "&:hover": {
-                      textDecoration: "underline",
-                    },
-                  }}
-                >
-                  FAQ
-                </Link>
-                <Link
-                  href="#"
-                  underline="none"
-                  sx={{
-                    color: "#A6A6A6",
-                    fontWeight: "bold",
-                    "&:hover": {
-                      textDecoration: "underline",
-                    },
-                  }}
-                >
-                  Blog
-                </Link>
-                <Link
-                  href="#"
-                  underline="none"
-                  sx={{
-                    color: "#A6A6A6",
-                    fontWeight: "bold",
-                    "&:hover": {
-                      textDecoration: "underline",
-                    },
-                  }}
-                >
-                  About
-                </Link>
-              </Stack>
+      <AppBar
+        position="static"
+        sx={{ bgcolor: "transparent", boxShadow: "none" }}
+      >
+        <Toolbar
+          sx={{ justifyContent: "space-between"}}
+        >
+          {/* Logo */}
+          <Typography
+            sx={{ color: "#54BD95", fontSize: "30px", fontWeight: "bold" }}
+          >
+            Biccas
+          </Typography>
 
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                marginLeft: "auto",
-                marginRight: "130px",
-                
-              }}
-            >
-              <Button
-              sx={{
-                size:"16px",
-                color:"#A6A6A6"
-              }}>Login</Button>
-              
-              <Button variant="contained" 
-              sx={{backgroundColor:"#54BD95",
-                borderRadius:"10px",
-                color:"#F8F8FA"
-              }}>Sign UP</Button>
-            </Box>
+          {/* Desktop Links */}
+
+          <Box sx={{display:{xs:'none', md:'flex'}}}>
+            <Button sx={{ color: "#54BD95" }}>Home</Button>
+            <Button sx={{ color: "#54BD95" }}>Product</Button>
+            <Button sx={{ color: "#54BD95" }}>FAQ</Button>
+            <Button sx={{ color: "#54BD95" }}>Blog</Button>
+            <Button sx={{ color: "#54BD95" }}>About US</Button>
           </Box>
+
+          {/* Auth Buttons OR Drawer Toggle */}
+          {isMobile ? (
+            <Drawer />
+          ) : (
+            <Box sx={{ display: "flex", gap: 2 }}>
+              <Button sx={{color:"#A6A6A6"}}>Login</Button>
+              <Button variant="contained" sx={{ color: "#F8F8FA", background:' #54BD95'  }}>
+                Sign Up
+              </Button>
+            </Box>
+          )}
         </Toolbar>
-        
       </AppBar>
     </>
   );

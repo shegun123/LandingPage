@@ -15,7 +15,6 @@ import footerImg3 from "../assets/images/footerImg3.png";
 import footerImg4 from "../assets/images/footerImg4.png";
 import footerImage6 from "../assets/images/footerImg6.png";
 
-
 const sections = [
   {
     title: "Support",
@@ -37,7 +36,7 @@ const FooterLinks = () => (
     sx={{
       display: "flex",
       flexWrap: "wrap",
-      gap: 8,
+      gap: { xs: 4, md: 8 },
     }}
   >
     {sections.map((section, idx) => (
@@ -79,37 +78,31 @@ const FooterSection = () => {
     <Box
       sx={{
         backgroundColor: "#161C28",
-        minHeight: "100vh",
         py: "50px",
-      
       }}
     >
-
-
       {/* Section 1: Testimonial + Form */}
-      <Box sx={{
-        display:"flex", 
-        flexDirection:"row",
-        margin:"130px"
-      }}>
-        {/*......left......*/}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          px: { xs: 2, sm: 4, md: 10, lg: 16 },
+          mb: { xs: 8, md: 12 },
+          gap: { xs: 6, md: 0 },
+        }}
+      >
+        {/* Left: Testimonial */}
         <Box
           sx={{
-            flex:"1", 
-            paddingRight:"101px"
+            flex: 1,
+            pr: { xs: 0, md: "80px" },
           }}
         >
-
-          
-          <Box>
-
-         
           <Typography
             sx={{
               fontWeight: 600,
               fontSize: "50px",
               color: "#ffffff",
-              
             }}
           >
             People are Saying About DoWhith
@@ -121,9 +114,7 @@ const FooterSection = () => {
             it anywhere on the planet.
           </Typography>
           <Box mb={3}>
-            <Typography sx={{ color: "#D9D9D9", fontSize: "20px" }}>
-              //
-            </Typography>
+            <Typography sx={{ color: "#D9D9D9", fontSize: "20px" }}>//</Typography>
             <Typography
               sx={{
                 fontWeight: 500,
@@ -151,28 +142,25 @@ const FooterSection = () => {
               <PlayCircleOutlineOutlinedIcon />
             </Avatar>
           </Stack>
-          </Box>
         </Box>
 
         {/* Right: Contact Form */}
         <Box
           sx={{
-      
             backgroundColor: "#222938",
-            flex:"1",
-           paddingLeft:"86px ", 
-           borderRadius:"20px"
-              
+            flex: 1,
+            pl: { xs: 0, md: "40px" },
+            borderRadius: "20px",
+            mt: { xs: 4, md: 0 },
+            p: { xs: 3, md: 4 },
           }}
         >
           <Box
             sx={{
-            
               display: "flex",
               flexDirection: "column",
-              alignItems:"center",
-             marginTop:"40px"
-          
+              alignItems: "center",
+              mt: 2,
             }}
           >
             <img src={footerImage6} alt="footer illustration" />
@@ -206,7 +194,6 @@ const FooterSection = () => {
               variant="filled"
               fullWidth
               sx={{
-                maxWidth: "440px",
                 bgcolor: "#ffffff",
                 borderRadius: "10px",
                 "& .MuiInputLabel-root": {
@@ -238,7 +225,6 @@ const FooterSection = () => {
               minRows={3}
               fullWidth
               sx={{
-                maxWidth: "440px",
                 bgcolor: "#ffffff",
                 borderRadius: "10px",
                 "& .MuiInputLabel-root": {
@@ -257,8 +243,6 @@ const FooterSection = () => {
               variant="contained"
               fullWidth
               sx={{
-                marginBottom:"66px",
-                maxWidth: "440px",
                 bgcolor: "#54BD95",
                 color: "#ffffff",
                 fontSize: "16px",
@@ -277,21 +261,21 @@ const FooterSection = () => {
         </Box>
       </Box>
 
-      {/* Section 2: Branding + FooterLinks */}
+      {/* Section 2: Branding + Footer Links */}
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: { xs: "column", md: "row" },
           justifyContent: "space-between",
           alignItems: "flex-start",
-          px: "130px",
-          mt: "100px",
+          px: { xs: 2, sm: 4, md: 10, lg: 16 },
+          mt: { xs: 6, md: 12 },
           flexWrap: "wrap",
           gap: 8,
         }}
       >
         {/* Branding */}
-        <Box sx={{ maxWidth: "400px" }}>
+        <Box sx={{ maxWidth: "100%", flex: 1, minWidth: "250px" }}>
           <Typography
             sx={{ color: "#54BD95", fontSize: "50px", fontWeight: 600, mb: 3 }}
           >
@@ -307,7 +291,6 @@ const FooterSection = () => {
             variant="outlined"
             fullWidth
             sx={{
-              maxWidth: "400px",
               bgcolor: "#ffffff",
               borderRadius: "10px",
               "& .MuiOutlinedInput-root": {
@@ -317,7 +300,7 @@ const FooterSection = () => {
           />
         </Box>
 
-        {/* Links */}
+        {/* Footer Links */}
         <FooterLinks />
       </Box>
 
@@ -325,25 +308,33 @@ const FooterSection = () => {
       <Box
         sx={{
           display: "flex",
+          flexDirection: { xs: "column", md: "row" },
           justifyContent: "space-between",
           alignItems: "center",
-          px: "130px",
-          mt: "60px",
-          flexWrap: "wrap",
+          px: { xs: 2, sm: 4, md: 10, lg: 16 },
+          mt: { xs: 6, md: 8 },
+          gap: 2,
         }}
       >
         <Typography
           sx={{
             fontWeight: 500,
-            fontSize: "18px",
+            fontSize: "16px",
             color: "#ffffff",
-            mb: 2,
+            textAlign: { xs: "center", md: "left" },
           }}
         >
           © 2022 Biccas Inc. All rights reserved.
         </Typography>
 
-        <Box sx={{ display: "flex", gap: 3, margin:"0px", padding:"0px" } }>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            gap: 2,
+            flexWrap: "wrap",
+          }}
+        >
           <Link
             href="#"
             underline="hover"
@@ -351,8 +342,7 @@ const FooterSection = () => {
           >
             Privacy Policy
           </Link>
-
-          <Typography sx={{color:"#A6A6A6", width:"4px", height:"4px", margin:"0px", padding:"0px"}}>.</Typography>
+          <Typography sx={{ color: "#A6A6A6" }}>·</Typography>
           <Link
             href="#"
             underline="hover"

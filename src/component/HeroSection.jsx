@@ -8,32 +8,35 @@ import DeleteIcon from "@mui/icons-material/Delete";
 const HeroSection = () => {
   return (
     <Box>
+      {/* ✅ Hero Section - Image on top in mobile */}
       <Box
         sx={{
-          
           display: "flex",
-          flexDirection: 'row',
+          flexDirection: { xs: "column-reverse", md: "row" }, // Stack reversed on small screens
           justifyContent: "space-between",
+          alignItems: "center",
           backgroundColor: "#ffffff",
-          marginLeft:"130px",
-          marginTop:"210px",
-          gap:"35px",
+          px: { xs: 2, sm: 4, md: 10 },
+          py: { xs: 6, md: 10 },
+          gap: { xs: 6, md: 4 },
         }}
       >
-        {/* ✅ Left Section */}
+        {/* ✅ Left Content */}
         <Box
-        
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          gap="30px"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            gap: "30px",
+            maxWidth: { xs: "100%", md: "50%" },
+          }}
         >
           <Typography
             sx={{
               color: "#191A15",
               fontWeight: 700,
-              fontSize: { xs: "42px", md: "64px", lg: "80px" },
-              lineHeight: { xs: "50px", md: "72px", lg: "90px" },
+              fontSize: { xs: "36px", sm: "48px", md: "64px", lg: "80px" },
+              lineHeight: { xs: "44px", sm: "56px", md: "72px", lg: "90px" },
             }}
           >
             We’re here to Increase your Productivity
@@ -44,8 +47,8 @@ const HeroSection = () => {
             src={myImage}
             alt="Underline graphic"
             sx={{
-              width: "479px",
-              height: "26px",
+              width: { xs: "100%", sm: "300px", md: "479px" },
+              height: "auto",
               color: "#54BD95",
             }}
           />
@@ -64,7 +67,7 @@ const HeroSection = () => {
             tasks with ease.
           </Typography>
 
-          <Stack direction="row" spacing={4} alignItems="center">
+          <Stack direction="row" spacing={2} flexWrap="wrap">
             <Button
               variant="contained"
               sx={{
@@ -94,15 +97,13 @@ const HeroSection = () => {
           </Stack>
         </Box>
 
-        {/* ✅ Right Section (Hero Image) */}
+        {/* ✅ Right Image */}
         <Box
           sx={{
-            
+            width: { xs: "100%", md: "50%" },
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            mt: { xs: 4, md: 0 },
-            
           }}
         >
           <Box
@@ -110,114 +111,68 @@ const HeroSection = () => {
             src={firstImg}
             alt="Hero Illustration"
             sx={{
-              margin: "0px",
-              padding: "0px",
+              width: { xs: "100%", sm: "80%", md: "100%" },
+              maxWidth: "600px",
+              height: "auto",
             }}
           />
         </Box>
       </Box>
-{/* ......section at the bottom........ */}
+
+      {/* ✅ Bottom Section */}
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          marginTop:"130px",
-          gap:"60px"
+          mt: { xs: 8, md: 12 },
+          px: 2,
+          textAlign: "center",
+          gap: "40px",
         }}
       >
-        <Typography sx={{
-          width:"720px",
-          height:"48px",
-          fontWeight:"700px",
-          fontSize:"40px"
-        }}>More than 25,000 teams use Collabs</Typography>
+        <Typography
+          sx={{
+            fontWeight: 700,
+            fontSize: { xs: "28px", sm: "32px", md: "40px" },
+            maxWidth: "90%",
+          }}
+        >
+          More than 25,000 teams use Collabs
+        </Typography>
 
-        <Box sx={{
-          display:"flex",
-          flexDirection:"row",
-          gap:"25px"
-        }}>
-          <Button
-            variant="text"
-            sx={{
-              fontSize: "30px",
-              color: "#A6A6A6",
-            }}
-        
-            color="inherit"
-          >
-            Unsplash
-          </Button>
-
-          <Button
-            variant="text"
-            sx={{
-              fontSize: "30px",
-              color: "#A6A6A6",
-            }}
-            startIcon={
-              <DeleteIcon
-                fontSize="inherit"
-                sx={{ color: "#A6A6A6", fontSize: "50px" }}
-              />
-            }
-            color="inherit"
-          >
-            Notion
-          </Button>
-
-          <Button
-            variant="text"
-            sx={{
-              fontSize: "30px",
-              color: "#A6A6A6",
-            }}
-            startIcon={
-              <DeleteIcon
-                fontSize="inherit"
-                sx={{ color: "#A6A6A6", fontSize: "50px" }}
-              />
-            }
-            color="inherit"
-          >
-            INTERCOM
-          </Button>
-
-          <Button
-            variant="text"
-            sx={{
-              fontSize: "30px",
-              color: "#A6A6A6",
-            }}
-            startIcon={
-              <DeleteIcon
-                fontSize="inherit"
-                sx={{ color: "#A6A6A6", fontSize: "50px" }}
-              />
-            }
-            color="inherit"
-          >
-            descript
-          </Button>
-
-          <Button
-            variant="text"
-            sx={{
-              fontSize: "30px",
-              color: "#A6A6A6",
-            }}
-            startIcon={
-              <DeleteIcon
-                fontSize="inherit"
-                sx={{ color: "#A6A6A6", fontSize: "50px" }}
-              />
-            }
-            color="inherit"
-          >
-            grammarly
-          </Button>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "20px",
+          }}
+        >
+          {["Unsplash", "Notion", "INTERCOM", "descript", "grammarly"].map(
+            (brand, i) => (
+              <Button
+                key={brand}
+                variant="text"
+                startIcon={
+                  i > 0 && (
+                    <DeleteIcon
+                      fontSize="inherit"
+                      sx={{ color: "#A6A6A6", fontSize: "40px" }}
+                    />
+                  )
+                }
+                sx={{
+                  fontSize: { xs: "18px", sm: "24px", md: "30px" },
+                  color: "#A6A6A6",
+                  textTransform: "capitalize",
+                }}
+              >
+                {brand}
+              </Button>
+            )
+          )}
         </Box>
       </Box>
     </Box>

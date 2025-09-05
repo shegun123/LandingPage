@@ -1,171 +1,100 @@
 import { Typography, Box } from "@mui/material";
 import React from "react";
 import Subtract from "../assets/images/Subtract.png";
-import merge from "../assets/images/merge.png"
+import merge from "../assets/images/merge.png";
 
 const FourthSection = () => {
   return (
     <Box
       sx={{
-        marginLeft: "130px",
-        marginRight: "61px",
-        marginBottom: "130px",
-        display:"flex",
-        flexDirection:"row",
+        maxWidth: "1200px",
+        mx: "auto",
+        mb: 16,
+        px: { xs: 2, sm: 4 },
+        display: "flex",
+        flexDirection: { xs: "column", md: "row" },
         justifyContent: "space-between",
-        alignItems:"center",
-        
+        alignItems: "center",
+        gap: { xs: 6, md: 4 },
       }}
     >
-      <Box>
+      {/* Text Box: on small screens order 2 (comes below), on large order 1 */}
+      <Box
+        sx={{
+          maxWidth: { xs: "100%", md: "429px" },
+          order: { xs: 2, md: 1 },
+          textAlign: { xs: "center", md: "left" },
+        }}
+      >
         <Typography
           sx={{
-            width: "429px",
             fontWeight: "700",
-            fontSize: "50px",
+            fontSize: { xs: "32px", md: "50px" },
             color: "#191A15",
-            marginLeft: "42px",
-            marginBottom: "50px",
+            mb: 6,
           }}
         >
-          What Benifit Will You Get
+          What Benefit Will You Get
         </Typography>
         <Box
           sx={{
-            display:"flex",
-            flexDirection:"column",
+            display: "flex",
+            flexDirection: "column",
             gap: "30px",
-            justifyContent:"flex-start"
+            justifyContent: "flex-start",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              gap: "20px",
-            }}
-          >
-            <img
-              src={Subtract}
-              alt="subtract"
-              sx={{ width: "32px", height: "32px" }}
-            />
-            <Typography
+          {[
+            "Free Consulting With Expert Saving Money",
+            "Online Banking",
+            "Investment Report Every Month",
+            "Saving Money For The Future",
+            "Online Transaction",
+          ].map((text, i) => (
+            <Box
+              key={i}
               sx={{
-                width: "419px",
-                fontWeight: "500",
-                fontSize: "18px",
-                color: "#191A15",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: "20px",
               }}
             >
-              Free Consulting With Experet Saving Money
-            </Typography>
-          </Box>
-
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              gap: "20px",
-            }}
-          >
-            <img
-              src={Subtract}
-              alt="subtract"
-              sx={{ width: "32px", height: "32px" }}
-            />
-            <Typography
-              sx={{
-                width: "419px",
-                fontWeight: "500",
-                fontSize: "18px",
-                color: "#191A15",
-              }}
-            >
-              Online Banking
-            </Typography>
-          </Box>
-
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              gap: "20px",
-            }}
-          >
-            <img
-              src={Subtract}
-              alt="subtract"
-              sx={{ width: "32px", height: "32px" }}
-            />
-            <Typography
-              sx={{
-                width: "419px",
-                fontWeight: "500",
-                fontSize: "18px",
-                color: "#191A15",
-              }}
-            >
-              Investment Report Every Month
-            </Typography>
-          </Box>
-
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              gap: "20px",
-            }}
-          >
-            <img
-              src={Subtract}
-              alt="subtract"
-              sx={{ width: "32px", height: "32px" }}
-            />
-            <Typography
-              sx={{
-                width: "419px",
-                fontWeight: "500",
-                fontSize: "18px",
-                color: "#191A15",
-              }}
-            >
-              Saving Money For The Future
-            </Typography>
-          </Box>
-
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              gap: "20px",
-            }}
-          >
-            <img
-              src={Subtract}
-              alt="subtract"
-              sx={{ width: "32px", height: "32px" }}
-            />
-            <Typography
-              sx={{
-                width: "419px",
-                fontWeight: "500",
-                fontSize: "18px",
-                color: "#191A15",
-              }}
-            >
-              Online Transection
-            </Typography>
-          </Box>
+              <Box
+                component="img"
+                src={Subtract}
+                alt="subtract"
+                sx={{ width: "32px", height: "32px", flexShrink: 0 }}
+              />
+              <Typography
+                sx={{
+                  fontWeight: "500",
+                  fontSize: "18px",
+                  color: "#191A15",
+                  flex: 1,
+                }}
+              >
+                {text}
+              </Typography>
+            </Box>
+          ))}
         </Box>
       </Box>
 
-      <img src={merge} alt="merge"/>
+      {/* Image Box: on small screens order 1 (comes first), on large order 2 */}
+      <Box
+        component="img"
+        src={merge}
+        alt="merge"
+        sx={{
+          width: { xs: "100%", md: "500px" },
+          height: "auto",
+          maxWidth: "100%",
+          display: "block",
+          mx: { xs: "auto", md: 0 },
+          order: { xs: 1, md: 2 },
+        }}
+      />
     </Box>
   );
 };

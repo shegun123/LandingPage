@@ -10,23 +10,32 @@ const SecondSection = () => {
       sx={{
         width: "100%",
         backgroundColor: "#F9F8FE",
-        marginTop: "130px",
-        padding: "60px 130px",
+        mt: { xs: 10, md: "130px" },
+        px: { xs: 2, sm: 4, md: 10 },
+        py: { xs: 6, md: 10 },
         display: "flex",
-        flexWrap: "wrap",
+        flexDirection: { xs: "column", md: "row" },
         justifyContent: "space-between",
+        gap: { xs: 6, md: 10 },
       }}
     >
-      {/* Left Part */}
-      <Box sx={{ maxWidth: 600 }}>
-        <Typography sx={{ fontWeight: 600, fontSize: "50px" }}>
+      {/* ✅ Left Part */}
+      <Box sx={{ maxWidth: { xs: "100%", md: "50%" } }}>
+        <Typography
+          sx={{
+            fontWeight: 600,
+            fontSize: { xs: "32px", sm: "40px", md: "50px" },
+            lineHeight: 1.2,
+          }}
+        >
           How we support our partner all over the world
         </Typography>
+
         <Typography
           sx={{
             color: "#A6A6A6",
-            fontSize: "16px",
-            marginTop: "30px",
+            fontSize: { xs: "14px", sm: "16px" },
+            mt: { xs: 3, sm: 4 },
           }}
         >
           SaaS has become a common delivery model for many business applications,
@@ -37,8 +46,9 @@ const SecondSection = () => {
         <Box
           sx={{
             display: "flex",
-            gap: "80px",
-            marginTop: "73px",
+            gap: { xs: 4, sm: 8 },
+            flexDirection: { xs: "column", sm: "row" },
+            mt: { xs: 4, sm: 6 },
           }}
         >
           {[{ name: "Databricks" }, { name: "Chainalysis" }].map((company, i) => (
@@ -58,7 +68,7 @@ const SecondSection = () => {
                   fontWeight: 700,
                   fontSize: "18px",
                   color: "#191A15",
-                  marginTop: "8px",
+                  mt: 1,
                 }}
               >
                 {ratingValue} / 5 rating
@@ -77,14 +87,14 @@ const SecondSection = () => {
         </Box>
       </Box>
 
-      {/* Right Part */}
+      {/* ✅ Right Part */}
       <Box
         sx={{
-          width: { xs: "100%", md: "509px" },
-          marginTop: { xs: "40px", md: "0" },
+          width: { xs: "100%", md: "50%" },
+          mt: { xs: 6, md: 0 },
           display: "flex",
           flexDirection: "column",
-          gap: "30px",
+          gap: { xs: 4, sm: 5 },
         }}
       >
         {[
@@ -101,14 +111,14 @@ const SecondSection = () => {
             text: "Quickly navigate and engage with your audience.",
           },
         ].map((item, i) => (
-          <Box key={i} sx={{ display: "flex", gap: "36px" }}>
+          <Box key={i} sx={{ display: "flex", gap: 3 }}>
             <Box
               component="img"
               src={commandImg}
               alt={item.title}
               sx={{
-                marginTop: "5px",
-                padding: "5px",
+                mt: "5px",
+                p: "5px",
                 height: "30px",
                 backgroundColor: "#ffffff",
               }}
@@ -117,7 +127,7 @@ const SecondSection = () => {
               <Typography
                 sx={{
                   fontWeight: 700,
-                  fontSize: "28px",
+                  fontSize: { xs: "20px", sm: "24px", md: "28px" },
                   color: "#191A15",
                 }}
               >
@@ -125,8 +135,9 @@ const SecondSection = () => {
               </Typography>
               <Typography
                 sx={{
-                  fontSize: "18px",
+                  fontSize: { xs: "14px", sm: "16px", md: "18px" },
                   color: "#A6A6A6",
+                  mt: 0.5,
                 }}
               >
                 {item.text}

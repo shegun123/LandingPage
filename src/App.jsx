@@ -8,6 +8,8 @@ import ThirdSection from "./component/ThirdSection";
 import FourthSection from "./component/FourthSection";
 import FivethScection from "./component/FivethScection";
 import FooterSection from "./component/FooterSection";
+import Drawer from "./component/Drawer"
+import BillingToggle from "./component/BillingToggle"
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
       <ThirdSection />
       <FourthSection />
       <FivethScection />
+      {/* <BillingToggle /> */}
       <FooterSection />
+      {/* <Drawer/> */}
     </>
   );
 }
