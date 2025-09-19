@@ -17,6 +17,8 @@ const SecondSection = () => {
         flexDirection: { xs: "column", md: "row" },
         justifyContent: "space-between",
         gap: { xs: 6, md: 10 },
+        boxSizing: "border-box",
+        
       }}
     >
       {/* ✅ Left Part */}

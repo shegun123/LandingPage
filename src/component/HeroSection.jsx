@@ -5,6 +5,8 @@ import firstImg from "../assets/images/firstImg.png";
 import PlayCircleOutlinedIcon from "@mui/icons-material/PlayCircleOutlined";
 import DeleteIcon from "@mui/icons-material/Delete";
 
+
+
 const HeroSection = () => {
   return (
     <Box>
@@ -15,7 +17,6 @@ const HeroSection = () => {
           flexDirection: { xs: "column-reverse", md: "row" }, // Stack reversed on small screens
           justifyContent: "space-between",
           alignItems: "center",
-          backgroundColor: "#ffffff",
           px: { xs: 2, sm: 4, md: 10 },
           py: { xs: 6, md: 10 },
           gap: { xs: 6, md: 4 },

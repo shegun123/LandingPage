@@ -8,7 +8,7 @@ const FourthSection = () => {
     <Box
       sx={{
         maxWidth: "1200px",
-        mx: "auto",
+        mx: "130px",
         mb: 16,
         px: { xs: 2, sm: 4 },
         display: "flex",
@@ -16,6 +16,7 @@ const FourthSection = () => {
         justifyContent: "space-between",
         alignItems: "center",
         gap: { xs: 6, md: 4 },
+        bgcolor:"transparent"
       }}
     >
       {/* Text Box: on small screens order 2 (comes below), on large order 1 */}

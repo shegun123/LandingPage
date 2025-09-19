@@ -19,6 +19,7 @@ const NavBar = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
+    
     <>
       <AppBar
         position="static"
@@ -35,6 +36,7 @@ const NavBar = () => {
           </Typography>
 
           {/* Desktop Links */}
+          
 
           <Box sx={{display:{xs:'none', md:'flex'}}}>
             <Button sx={{ color: "#54BD95" }}>Home</Button>
